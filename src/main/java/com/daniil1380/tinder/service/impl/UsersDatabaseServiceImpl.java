@@ -1,8 +1,8 @@
-package com.daniil1380.tinder.repository.impl;
+package com.daniil1380.tinder.service.impl;
 
 import com.daniil1380.tinder.entity.Sex;
 import com.daniil1380.tinder.entity.User;
-import com.daniil1380.tinder.repository.UsersRepository;
+import com.daniil1380.tinder.service.UsersDatabaseService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UsersRepositoryImpl implements UsersRepository {
+public class UsersDatabaseServiceImpl implements UsersDatabaseService {
 
     private List<User> userList;
 

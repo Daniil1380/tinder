@@ -1,9 +1,8 @@
 package com.daniil1380.tinder.service.impl;
 
 import com.daniil1380.tinder.entity.User;
-import com.daniil1380.tinder.repository.UsersRepository;
+import com.daniil1380.tinder.service.UsersDatabaseService;
 import com.daniil1380.tinder.service.MatchService;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,15 +10,15 @@ import java.util.List;
 @Service
 public class HighestScoreMatchService implements MatchService {
 
-    private UsersRepository usersRepository;
+    private UsersDatabaseService usersDatabaseService;
 
-    public HighestScoreMatchService(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
+    public HighestScoreMatchService(UsersDatabaseService usersDatabaseService) {
+        this.usersDatabaseService = usersDatabaseService;
     }
 
     @Override
     public User getNewMatch() {
-        List<User> users = usersRepository.getUserList();
+        List<User> users = usersDatabaseService.getUserList();
         int maxPoint = 0;
         User highestRangUser = null;
 
