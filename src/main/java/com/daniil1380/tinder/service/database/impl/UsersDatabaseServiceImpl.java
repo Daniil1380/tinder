@@ -1,8 +1,8 @@
-package com.daniil1380.tinder.service.impl;
+package com.daniil1380.tinder.service.database.impl;
 
 import com.daniil1380.tinder.entity.Sex;
 import com.daniil1380.tinder.entity.User;
-import com.daniil1380.tinder.service.UsersDatabaseService;
+import com.daniil1380.tinder.service.database.UsersDatabaseService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
-package com.daniil1380.tinder.service.impl;
+package com.daniil1380.tinder.service.match.impl;
 
 import com.daniil1380.tinder.entity.User;
-import com.daniil1380.tinder.service.UsersDatabaseService;
-import com.daniil1380.tinder.service.MatchService;
+import com.daniil1380.tinder.service.database.UsersDatabaseService;
+import com.daniil1380.tinder.service.match.MatchService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 

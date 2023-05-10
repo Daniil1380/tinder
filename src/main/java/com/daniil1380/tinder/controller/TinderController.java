@@ -1,7 +1,7 @@
 package com.daniil1380.tinder.controller;
 
 import com.daniil1380.tinder.entity.User;
-import com.daniil1380.tinder.service.MatchService;
+import com.daniil1380.tinder.service.match.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
