@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UsersDatabaseServiceImpl implements UsersDatabaseService {
+public class UsersDatabaseFakeServiceImpl implements UsersDatabaseService {
 
     private List<User> userList;
 
