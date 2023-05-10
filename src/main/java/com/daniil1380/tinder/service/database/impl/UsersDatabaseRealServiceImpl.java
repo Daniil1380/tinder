@@ -18,6 +18,7 @@ public class UsersDatabaseRealServiceImpl implements UsersDatabaseService {
 
     @Override
     public List<User> getUserList() {
+        System.out.println(userRepository.getUserByName("Aleksandr"));
         return userRepository.findAll();
     }
 }
