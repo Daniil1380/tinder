@@ -19,11 +19,17 @@ public class HighestScoreMatchService implements MatchService {
     @Override
     public User getNewMatch() {
         List<User> users = usersDatabaseService.getUserList();
+
+        if (users == null) {
+            return null;
+        }
+
         int maxPoint = 0;
         User highestRangUser = null;
 
         for (User user : users) {
-            if (user.getPoints() > maxPoint) {
+            Integer points = user.getPoints();
+            if (points != null && points > maxPoint) {
                 maxPoint = user.getPoints();
                 highestRangUser = user;
             }

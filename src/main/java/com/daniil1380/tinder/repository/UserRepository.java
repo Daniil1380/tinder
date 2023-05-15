@@ -1,7 +1,10 @@
 package com.daniil1380.tinder.repository;
 
 import com.daniil1380.tinder.entity.User;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -25,6 +28,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     //DELETE from user where name ilike '%......'
 
-
+    @Query("SELECT new User(user.id, user.name, user.sex, user.points) from User user" +
+            " where user.id = :id")
+    User ttt(@Param("id") Integer id);
 
 }
