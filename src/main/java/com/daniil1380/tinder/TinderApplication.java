@@ -1,11 +1,11 @@
 package com.daniil1380.tinder;
 
-import com.daniil1380.tinder.entity.Sex;
-import com.daniil1380.tinder.entity.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class TinderApplication {
 
     public static void main(String[] args) {
