@@ -1,12 +1,12 @@
 package com.daniil1380.tinder.service.database.impl;
 
-import com.daniil1380.tinder.entity.Sex;
 import com.daniil1380.tinder.entity.User;
 import com.daniil1380.tinder.repository.UserRepository;
 import com.daniil1380.tinder.service.database.UsersDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class UsersDatabaseRealServiceImpl implements UsersDatabaseService {
 
     @Override
     public List<User> getUserList() {
-        System.out.println(userRepository.ttt(1));
         return userRepository.findAll();
     }
+
 }

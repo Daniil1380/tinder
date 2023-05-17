@@ -4,6 +4,7 @@ import com.daniil1380.tinder.entity.User;
 import com.daniil1380.tinder.service.database.UsersDatabaseService;
 import com.daniil1380.tinder.service.match.MatchService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class HighestScoreMatchService implements MatchService {
     }
 
     @Override
+    @Transactional
     public User getNewMatch() {
         List<User> users = usersDatabaseService.getUserList();
 

@@ -1,7 +1,6 @@
 package com.daniil1380.tinder.repository;
 
 import com.daniil1380.tinder.entity.User;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -30,6 +29,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT new User(user.id, user.name, user.sex, user.points) from User user" +
             " where user.id = :id")
-    User ttt(@Param("id") Integer id);
+    User selectByID(@Param("id") Integer id);
 
 }
