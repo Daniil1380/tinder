@@ -94,12 +94,21 @@ public class TinderController {
     }
 
     @GetMapping("/create-new-user")
+    @Transactional
     public void create() {
         User user = new User();
         user.setSex(Sex.FEMALE);
         user.setPoints(100);
         user.setName("Ирина");
+        //userRepository.save(user);
+        entityManager.persist(user); //managed
+        user.setPoints(10000);
+        user.setName("Лариса");
         userRepository.save(user);
+        //save
+        //MyBatis
+
+        //entityManager.remove(user);
     }
 
 
