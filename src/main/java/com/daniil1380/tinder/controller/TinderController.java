@@ -1,8 +1,11 @@
 package com.daniil1380.tinder.controller;
 
+import com.daniil1380.tinder.entity.Sex;
 import com.daniil1380.tinder.entity.User;
 import com.daniil1380.tinder.repository.UserRepository;
 import com.daniil1380.tinder.service.match.MatchService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
@@ -23,6 +26,9 @@ public class TinderController {
 
     private final MatchService matchService;
     private final UserRepository userRepository;
+
+    @PersistenceContext
+    private final EntityManager entityManager;
 
 
     @GetMapping(value = "/new-match")
@@ -86,5 +92,20 @@ public class TinderController {
         secondUser.setPoints(secondUser.getPoints() + 100);
         userRepository.save(secondUser);
     }
+
+    @GetMapping("/create-new-user")
+    public void create() {
+        User user = new User();
+        user.setSex(Sex.FEMALE);
+        user.setPoints(100);
+        user.setName("Ирина");
+        userRepository.save(user);
+    }
+
+
+
+
+
+
 
 }
