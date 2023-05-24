@@ -20,7 +20,8 @@ public class HighestScoreMatchService implements MatchService {
     @Override
     @Transactional
     public User getNewMatch() {
-        List<User> users = usersDatabaseService.getUserList();
+        List<User> users = usersDatabaseService.getUserList("", true); //LinkedList из 0 элементов
+
 
         if (users == null) {
             return null;

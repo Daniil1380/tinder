@@ -18,7 +18,7 @@ public class UsersDatabaseRealServiceImpl implements UsersDatabaseService {
     private UserRepository userRepository;
 
     @Override
-    public List<User> getUserList() {
+    public List<User> getUserList(String str, boolean a) {
         return userRepository.findAll();
     }
 

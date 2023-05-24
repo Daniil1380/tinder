@@ -21,7 +21,7 @@ public class RandomMatchService implements MatchService {
 
     @Override
     public User getNewMatch() {
-        List<User> users = usersDatabaseService.getUserList();
+        List<User> users = usersDatabaseService.getUserList("", true);
         Random random = new Random();
         int i = random.nextInt(users.size());
         return users.get(i);

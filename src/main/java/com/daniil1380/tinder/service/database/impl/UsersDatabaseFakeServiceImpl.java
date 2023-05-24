@@ -38,7 +38,7 @@ public class UsersDatabaseFakeServiceImpl implements UsersDatabaseService {
         userList.add(user2);
     }
 
-    public List<User> getUserList() {
+    public List<User> getUserList(String str, boolean a) {
         return userList;
     }
 

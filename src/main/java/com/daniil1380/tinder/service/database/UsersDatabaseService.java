@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UsersDatabaseService {
 
-    List<User> getUserList();
+    List<User> getUserList(String str, boolean a);
 
 }
