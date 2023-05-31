@@ -1,6 +1,6 @@
 package com.daniil1380.tinder.service.match.impl;
 
-import com.daniil1380.tinder.entity.User;
+import com.daniil1380.tinder.entity.Account;
 import com.daniil1380.tinder.service.database.UsersDatabaseService;
 import com.daniil1380.tinder.service.match.MatchService;
 import org.springframework.stereotype.Service;
@@ -19,8 +19,8 @@ public class HighestScoreMatchService implements MatchService {
 
     @Override
     @Transactional
-    public User getNewMatch() {
-        List<User> users = usersDatabaseService.getUserList("", true); //LinkedList из 0 элементов
+    public Account getNewMatch() {
+        List<Account> users = usersDatabaseService.getUserList(); //LinkedList из 0 элементов
 
 
         if (users == null) {
@@ -28,9 +28,9 @@ public class HighestScoreMatchService implements MatchService {
         }
 
         int maxPoint = 0;
-        User highestRangUser = null;
+        Account highestRangUser = null;
 
-        for (User user : users) {
+        for (Account user : users) {
             Integer points = user.getPoints();
             if (points != null && points > maxPoint) {
                 maxPoint = user.getPoints();

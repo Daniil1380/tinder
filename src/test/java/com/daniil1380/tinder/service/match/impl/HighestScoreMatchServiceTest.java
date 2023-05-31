@@ -1,11 +1,8 @@
 package com.daniil1380.tinder.service.match.impl;
 
 import com.daniil1380.tinder.entity.Sex;
-import com.daniil1380.tinder.entity.User;
+import com.daniil1380.tinder.entity.Account;
 import com.daniil1380.tinder.service.database.UsersDatabaseService;
-import com.daniil1380.tinder.service.database.impl.UsersDatabaseRealServiceImpl;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -36,26 +33,26 @@ class HighestScoreMatchServiceTest {
     @Test
     public void getNewMatch_twoUsersWithDifferentPoints_success() {
         //создание различных обьектов, моков, и тд
-        User expected = new User(2, "Kirill", Sex.MALE, 101);
+        Account expected = new Account(2, "Kirill", Sex.MALE, 101);
 
-        List<User> list = new ArrayList<>();
-        list.add(new User(1, "Daniil", Sex.MALE, 100));
+        List<Account> list = new ArrayList<>();
+        list.add(new Account(1, "Daniil", Sex.MALE, 100));
         list.add(expected);
 
 
-        when(usersDatabaseService.getUserList(any(), anyBoolean())).thenReturn(list);
+        when(usersDatabaseService.getUserList()).thenReturn(list);
         //doThrow(NullPointerException.class).when(usersDatabaseService).getUserList(any(), anyBoolean());
 
 
         //вызов метода, который ткстируем
         //assertThrows(NullPointerException.class, () -> highestScoreMatchService.getNewMatch());
-        User actual = highestScoreMatchService.getNewMatch();
+        Account actual = highestScoreMatchService.getNewMatch();
 
 
         //проверка результатов
         assertNotNull(actual);
         assertEquals(expected, actual);
-        verify(usersDatabaseService, times(1)).getUserList(any(), anyBoolean());
+        verify(usersDatabaseService, times(1)).getUserList();
     }
 
 

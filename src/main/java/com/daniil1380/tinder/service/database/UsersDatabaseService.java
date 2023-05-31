@@ -1,11 +1,16 @@
 package com.daniil1380.tinder.service.database;
 
-import com.daniil1380.tinder.entity.User;
+import com.daniil1380.tinder.entity.Account;
+import com.daniil1380.tinder.entity.Sex;
 
 import java.util.List;
 
 public interface UsersDatabaseService {
 
-    List<User> getUserList(String str, boolean a);
+    List<Account> getUserList();
+
+    List<Account> getBySex(Sex sex);
+
+    Account getByName(String name);
 
 }
