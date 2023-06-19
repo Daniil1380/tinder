@@ -28,7 +28,6 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                //.requestMatchers("/new-match").hasRole("SUPER_USER")
                 //.requestMatchers(HttpMethod.GET,"/new-match").hasRole("USER")
                 //.requestMatchers("/new-match").hasRole("USER")
                 //.requestMatchers("/hello").hasRole("ADMIN")
@@ -39,8 +38,9 @@ public class WebSecurityConfig {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .and()
-                .logout();
+                .disable()
+                .csrf().disable()
+                .cors().disable();
 
         return http.build();
     }
